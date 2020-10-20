@@ -2,18 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/unit/request.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:convert' as convert;
-
-// import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:toast/toast.dart';
-
 GlobalKey<_HomePageState> globalKey = GlobalKey();
-
-
-
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
-
   _HomePageState createState() => _HomePageState();
 }
 
@@ -41,6 +34,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   childMethod() {
+    print("123");
     _getUserInfo();
     this.siteList = [];
     _getSiteListData(1);
@@ -111,11 +105,20 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: ScreenUtil().setHeight(1200.0),
               child: EasyRefresh.custom(
+
                 enableControlFinishRefresh: false,
                 enableControlFinishLoad: true,
                 controller: _controller,
-                header: ClassicalHeader(),
-                footer: ClassicalFooter(),
+                header: ClassicalHeader(
+                    refreshText:'下拉刷新',
+                    refreshReadyText:"下拉刷新",
+                    refreshingText:"刷新中...",
+                    refreshedText: "刷新完成",
+                    showInfo:false
+                ),
+                footer: ClassicalFooter(
+                    loadedText:"没有更多数据",
+                ),
 
                 ///下拉刷新
                 onRefresh: () async {
@@ -164,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(75),
                                         child: Image.network(
-                                          'http://wuxigf.oss-cn-shanghai.aliyuncs.com/app/huazi.jpg',
+                                          'http://wuxigf.oss-cn-shanghai.aliyuncs.com/app/logo.png',
                                           width: 150.ssp,
                                           height: 150.ssp,
                                           fit: BoxFit.cover,
@@ -207,7 +210,7 @@ class _HomePageState extends State<HomePage> {
                               //  投递数据
                               Container(
                                   transform: Matrix4.translationValues(0, -90.ssp, 0),
-                                  padding: EdgeInsets.fromLTRB(0, 32.ssp, 0, 0),
+                                  padding: EdgeInsets.fromLTRB(0, 32.ssp, 0, 20.ssp),
                                   decoration: new BoxDecoration(
                                       border: new Border.all(
                                           color: Color(0xFFFFFFFF), width: 0.5),

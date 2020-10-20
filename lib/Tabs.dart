@@ -42,7 +42,7 @@ class _TabsState extends State<Tabs>{
   }
   int activeIndex = 0;
   List _pageList = [
-    HomePage(),
+    HomePage(key: globalKey),
     ScanPage(),
     MyPage()
   ];
@@ -57,26 +57,8 @@ class _TabsState extends State<Tabs>{
     //设置适配尺寸 (填入设计稿中设备的屏幕尺寸) 此处假如设计稿是按iPhone6的尺寸设计的(iPhone6 750*1334)
     ScreenUtil.init(context, designSize: Size(750, 1334), allowFontScaling: false);
     return Scaffold(
-      // appBar: AppBar(title: Text('首页'), backgroundColor: Color(0xFF54CF7A),),
+      resizeToAvoidBottomInset:false,
       body: this._pageList[this.activeIndex],
-
-      // Container(
-      //     width: ScreenUtil().setWidth(750),
-      //     height: ScreenUtil().setHeight(1334),
-      //     color: Colors.white,
-      //     child: SingleChildScrollView(
-      //         reverse:false,
-      //       child: IndexedStack(
-      //         children:<Widget>[
-      //           HomePage(key: globalKey),
-      //           ScanPage(),
-      //           MyPage()
-      //         ],
-      //         index:this.activeIndex,
-      //       ),
-      //     )
-      // ),
-
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: this.activeIndex,
         onTap: (int index){

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'file:///C:/Users/86152/AndroidStudioProjects/flutter_app/lib/register.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'home.dart';
 import 'dart:convert' as convert;
-import 'package:crypto/crypto.dart';
 import 'unit/request.dart';
 import 'package:flutter/rendering.dart';
 import 'package:toast/toast.dart';
@@ -89,6 +86,7 @@ class _ExampleWidgetState extends State<ExampleWidget> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      resizeToAvoidBottomInset:false,
       body: SingleChildScrollView(
 
         child: Column(

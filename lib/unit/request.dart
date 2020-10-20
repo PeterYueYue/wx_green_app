@@ -1,6 +1,7 @@
 
 import 'dart:convert';
 import 'dart:math';
+import 'package:flutter_app/unit/user.dart';
 import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
@@ -84,7 +85,7 @@ class Utils extends StatefulWidget{
     parameter['timestamp'] = timestamp.toString();
     parameter['nonce'] = nonce;
     parameter['app_id'] = app_id;
-    parameter['microServiceIp'] = microServiceIp;
+    // parameter['microServiceIp'] = microServiceIp;
     parameter['version'] = "1.0";
     /// 获取加密签名
     var sign = getSign(parameter);
@@ -103,7 +104,6 @@ class Utils extends StatefulWidget{
 
 
 }
-
 
 
 
