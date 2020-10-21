@@ -112,6 +112,8 @@ class _TabsState extends State<Tabs>{
       );
 
       var result = await BarcodeScanner.scan(options: options);
+
+
       _scanSbmit(result);
       setState(() => scanResult = result);
     } on PlatformException catch (e) {
@@ -137,10 +139,11 @@ class _TabsState extends State<Tabs>{
 
   ///扫码提交
   _scanSbmit(trashNo)async{
+
     var resUlt = await Utils().request ({
       "method":"user.supervisor.scan",
       "biz_content":convert.jsonEncode({
-        "trashNo":trashNo.rawContent,
+        "trashNo":trashNo.rawContent.split('?')[1].split('=')[1],
       }),
       "token":myToken
     });

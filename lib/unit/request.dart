@@ -85,7 +85,7 @@ class Utils extends StatefulWidget{
     parameter['timestamp'] = timestamp.toString();
     parameter['nonce'] = nonce;
     parameter['app_id'] = app_id;
-    // parameter['microServiceIp'] = microServiceIp;
+    parameter['microServiceIp'] = microServiceIp;
     parameter['version'] = "1.0";
     /// 获取加密签名
     var sign = getSign(parameter);

@@ -55,6 +55,7 @@ class _ExampleWidgetState extends State<ExampleWidget> {
 
     if(this.passWord != this.passWord1){
       showToast("两次输入的密码不一致", duration: Toast.LENGTH_LONG);
+      return false;
     }
     var resUlt = await Utils().request ({
       "method":"user.supervisor.register",
@@ -121,9 +122,9 @@ class _ExampleWidgetState extends State<ExampleWidget> {
                         enabled: true, // 是否启用
                         inputFormatters: [], //对输入的文字进行限制和校验
                         keyboardType: TextInputType.text, //获取焦点时,启用的键盘类型
-                        onEditingComplete: () {
-                          print('test');
-                        },
+                        // onEditingComplete: () {
+                        //   print('test');
+                        // },
                         onChanged: (value) {
                           setState(() {
                             name = value;
@@ -170,10 +171,10 @@ class _ExampleWidgetState extends State<ExampleWidget> {
                         autofocus: false, //自动获取焦点
                         enabled: true, // 是否启用
                         inputFormatters: [], //对输入的文字进行限制和校验
-                        keyboardType: TextInputType.text, //获取焦点时,启用的键盘类型
-                        onEditingComplete: () {
-                          print('test');
-                        },
+                        keyboardType: TextInputType.phone, //获取焦点时,启用的键盘类型
+                        // onEditingComplete: () {
+                        //   print('test');
+                        // },
                         onChanged: (value) {
                           setState(() {
                             userName = value;

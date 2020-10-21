@@ -108,10 +108,10 @@ class _LoginState extends State<Login> {
                         autofocus: false, //自动获取焦点
                         enabled: true, // 是否启用
                         inputFormatters: [], //对输入的文字进行限制和校验
-                        keyboardType: TextInputType.text, //获取焦点时,启用的键盘类型
-                        onEditingComplete: () {
-                          print('test');
-                        },
+                        keyboardType: TextInputType.phone, //获取焦点时,启用的键盘类型
+                        // onEditingComplete: () {
+                        //   print('test');
+                        // },
                         onChanged: (value) {
                           setState(() {
                             userName = value;
