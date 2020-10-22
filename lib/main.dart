@@ -7,6 +7,7 @@ import 'mainPage.dart';
 import 'unit/request.dart';
 
 void main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
   LocalCacheSync.instance.setCachePath(
     await getTemporaryDirectory(),

@@ -9,6 +9,7 @@ import 'package:http/http.dart';
 import 'dart:convert' as convert;
 import 'package:dio/dio.dart';
 
+
 var myToken = "";
 
 
@@ -25,6 +26,7 @@ _randomBit(int len) {
   }
   return result;
 }
+
 
 String getSign(Map parameter) {
   var Key = "0878b0d87e84486dad0a9856593fb7ac";
@@ -85,16 +87,42 @@ class Utils extends StatefulWidget{
     parameter['timestamp'] = timestamp.toString();
     parameter['nonce'] = nonce;
     parameter['app_id'] = app_id;
-    parameter['microServiceIp'] = microServiceIp;
+    // parameter['microServiceIp'] = microServiceIp;
     parameter['version'] = "1.0";
     /// 获取加密签名
     var sign = getSign(parameter);
     parameter['sign'] = sign;
     var dio = Dio();
+    print(parameter);
+
+
+
     var response = await dio.post(apiUrl,data:parameter);
     print(response);
     return response.data;
   }
+  //图片上传
+  upload  (parameter) async {
+    var timestamp = new DateTime.now();
+    print(timestamp.toString());
+    var nonce = _randomBit(5);
+    var app_id = "20200608719606620987850752";
+    var microServiceIp = "10.9.0.4";
+    parameter['timestamp'] = timestamp.toString();
+    parameter['nonce'] = nonce;
+    parameter['app_id'] = app_id;
+    parameter['microServiceIp'] = microServiceIp;
+    parameter['version'] = "1.0";
+    /// 获取加密签名
+    var sign = getSign(parameter);
+
+    parameter['sign'] = sign;
+
+    return parameter;
+  }
+
+
+
 
   void handle(error) {
     print(error);
