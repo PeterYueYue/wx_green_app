@@ -161,6 +161,8 @@ class _HomePageState extends State<HomePage> {
       "file":  await MultipartFile.fromFile(imageFile.path, filename: name)
     });
     var response =  await Dio().post("https://gateway.wuxigf.com/apiv2/", data:formData);
+    print("9999999999-------------------------------");
+    print(response.data);
     return response.data["result"]["imgUrl"];
 
 
@@ -190,6 +192,7 @@ class _HomePageState extends State<HomePage> {
     var image = await ImagePicker.pickImage(source: ImageSource.camera);
     print(image.path);
     var imgUrl = await  _upLoadImage(image);
+
 
     var resUlt = await Utils().request({
       "method": "user.delivery.photo",

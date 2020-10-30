@@ -83,11 +83,11 @@ class Utils extends StatefulWidget{
     print(timestamp.toString());
     var nonce = _randomBit(5);
     var app_id = "20200608719606620987850752";
-    var microServiceIp = "10.9.0.4";
+    var microServiceIp = "10.9.0.3";
     parameter['timestamp'] = timestamp.toString();
     parameter['nonce'] = nonce;
     parameter['app_id'] = app_id;
-    // parameter['microServiceIp'] = microServiceIp;
+//     parameter['microServiceIp'] = microServiceIp;
     parameter['version'] = "1.0";
     /// 获取加密签名
     var sign = getSign(parameter);
@@ -107,11 +107,11 @@ class Utils extends StatefulWidget{
     print(timestamp.toString());
     var nonce = _randomBit(5);
     var app_id = "20200608719606620987850752";
-    var microServiceIp = "10.9.0.4";
+    var microServiceIp = "10.9.0.3";
     parameter['timestamp'] = timestamp.toString();
     parameter['nonce'] = nonce;
     parameter['app_id'] = app_id;
-    parameter['microServiceIp'] = microServiceIp;
+//    parameter['microServiceIp'] = microServiceIp;
     parameter['version'] = "1.0";
     /// 获取加密签名
     var sign = getSign(parameter);
